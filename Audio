@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Gallery</title>
+</head>
+<body>
+    <h1>Welcome, {{ user.username }}!</h1>
+    
+    {% for audio in files %}
+        <audio controls>
+            <source src="{{ url_for('static', filename='photos/' + audio.filename) }}" type="audio/mp3">
+            Your browser does not support the audio tag.
+        </audio>
+    {% endfor %}
+
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>
