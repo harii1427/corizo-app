@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery</title>
+</head>
+<body>
+    <h1>Welcome, {{ user.username }}!</h1>
+    
+    {% for photo in files %}
+        <img src="{{ url_for('static', filename='photos/' + photo.filename) }}" alt="Photo">
+    {% endfor %}
+
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>
